@@ -5,28 +5,21 @@ int h[SIZE]={NULL};
 void insert()
 {
 
- int value,index,i,flag=0,key;
+ int value,index,i,key;
  printf("\nenter a value to insert into hash table\n");
  scanf("%d",&value);
  key=value%SIZE;
  for(i=0;i<SIZE;i++)
 {
 
-     index=key%SIZE;
+     index=(key+i)%SIZE;
 
      if(h[index] == NULL)
      {
         h[index]=value;
          break;
      }
-     else{
-     	while(h[index]!=NULL)
-     	{
-     		index=(key+1)%SIZE;
-     		key++;
-		 }
-     	
-	 }
+
 }
 if(i == SIZE)
      printf("\nelement cannot be inserted\n");
@@ -34,38 +27,23 @@ if(i == SIZE)
 void search()
 {
 
- int value,index,i,flag=0,key;
+ int value,index,i,key;
  printf("\nenter search element\n");
  scanf("%d",&value);
  key=value%SIZE;
  int temp=key;
  for(i=0;i<SIZE; i++)
  {
-    index=(key)%SIZE;
+    index=(key+i)%SIZE;
     if(h[index]==value)
     {
       printf("value is found at index %d",index);
       break;
     }
-    else{
-     	while(h[index]!=value)
-     	{
-     		index=(key+1)%SIZE;
-     		key++;
-     		if(h[index]!=value)
-     		break;
-     		else{
-     			if(key==temp)
-     			break;
-			 }
-		 }
-     	
-	 }
+
   }
   if(i == SIZE)
     printf("\n value is not found\n");
-    else
-    printf("\nvalue found at index %d",index);
 }
 void display()
 {
