@@ -18,7 +18,7 @@ void merge(int a[],int l,int m,int r)
 		{
 			b[k]=a[y];
 			k++;
-			x++;
+			y++;
 		}
 	}
 	while(x<m)
@@ -40,7 +40,7 @@ void merge(int a[],int l,int m,int r)
 }
 void merge_sort(int a[],int l,int r)
 {
-	int mid;
+	int mid=0;
 	if(l<r)
 	{
 		mid=(l+r)/2;
@@ -62,5 +62,5 @@ int main()
 	merge_sort(a,l,r);
 	printf("SORTED\n");
 	for(i=0;i<n;i++)
-	printf("%d",&a[i]);
+	printf("%d\n",a[i]);
 }
